@@ -199,15 +199,8 @@ function extractEmails(s) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(w, h) {
-  let s = '';
-  for (let i = 0; i < h; i + 1) {
-    for (let j = 0; j < w; j + 1) {
-      s += i === 0 || i === h - 1 || j === 0 || j === w - 1 ? '-' : ' ';
-      s += '\r\n';
-    }
-  }
-  return s;
+function getRectangleString() {
+  throw new Error('Not implemented');
 }
 /**
  * Encode specified string with ROT13 cipher
