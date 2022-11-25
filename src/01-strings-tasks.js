@@ -199,8 +199,30 @@ function extractEmails(s) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString() {
-  throw new Error('Not implemented');
+function getRectangleString(w, h) {
+  let s = [];
+  const ul = '┌';
+  const ur = '┐';
+  const dl = '└';
+  const dr = '┘';
+  const hor = '─';
+  const ver = '│';
+  const h2 = h - 2;
+  const w2 = w - 2;
+  // let create up
+  const up = `${ul}${hor.repeat(w2)}${ur}`;
+  s.push(up);
+
+  // let create mid
+  const mid = `${ver}${' '.repeat(w2)}${ver}`;
+  const b = Array(h2).fill(mid);
+  s.push(b);
+  // let create down
+  const down = `${dl}${hor.repeat(w2)}${dr}`;
+  s.push(down);
+  s = s.flat();
+  s = s.map((x) => `${x}\n`);
+  return s.join('');
 }
 /**
  * Encode specified string with ROT13 cipher
