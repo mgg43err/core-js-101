@@ -63,9 +63,7 @@ const doubleArray = (arr) => arr.concat(arr);
  *    [-1, 2, -5, -4, 0] => [ 2 ]
  *    [] => []
  */
-function getArrayOfPositives(/* arr */) {
-  throw new Error('Not implemented');
-}
+const getArrayOfPositives = (a) => a.filter((x) => x > 0);
 
 /**
  * Returns the array with strings only in the specified array (in original order)
