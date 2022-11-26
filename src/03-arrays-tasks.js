@@ -121,8 +121,8 @@ function getUpperCaseStrings(x) {
  *    [ '', 'a', 'bc', 'def', 'ghij' ]  => [ 0, 1, 2, 3, 4 ]
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
-function getStringsLength(/* arr */) {
-  throw new Error('Not implemented');
+function getStringsLength(e) {
+  return e.map((x) => x.length);
 }
 
 /**
