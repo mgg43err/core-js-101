@@ -91,8 +91,8 @@ const getArrayOfStrings = (a) => a.filter((x) => x instanceof String || typeof x
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(a) {
+  return a.filter((x) => (x));
 }
 
 /**
