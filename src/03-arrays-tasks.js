@@ -76,9 +76,7 @@ const getArrayOfPositives = (a) => a.filter((x) => x > 0);
  *    [ 1, 2, 3, 4, 5 ] => []
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
-function getArrayOfStrings(/* arr */) {
-  throw new Error('Not implemented');
-}
+const getArrayOfStrings = (a) => a.filter((x) => x instanceof String || typeof x === 'string');
 
 /**
  * Removes falsy values from the specified array
