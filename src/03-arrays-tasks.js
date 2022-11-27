@@ -517,11 +517,9 @@ function distinct(arr) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-function group(/* array, keySelector, valueSelector */) {
+function group(/* myArray, keySelector, valueSelector */) {
   throw new Error('Not implemented');
 }
-
-
 /**
  * Projects each element of the specified array to a sequence
  * and flattens the resulting sequences into one array.
