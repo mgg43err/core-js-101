@@ -519,13 +519,16 @@ function distinct(arr) {
  */
 function group(array, keySelector, valueSelector) {
   const map = new Map();
-  array.map((el, i) => {
-    const key = keySelector(array[i]);
-    if (map.has(key)) {
-      map.get(key).push(valueSelector(array[i]));
-    } else { map.set(key, [valueSelector(array[i])]); }
-    return map;
-  });
+  if (Array.isArray(array)) {
+    array.map((el, i) => {
+      const key = keySelector(array[i]);
+      if (map.has(key)) {
+        map.get(key).push(valueSelector(array[i]));
+      } else { map.set(key, [valueSelector(array[i])]); }
+      return map;
+    });
+  }
+  return map;
 }
 /**
  * Projects each element of the specified array to a sequence
@@ -540,7 +543,8 @@ function group(array, keySelector, valueSelector) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], (x) => x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
+function selectMany(/* a, c */) {
+  /* return a.map((x) => c(x)).flat(); */
   throw new Error('Not implemented');
 }
 
