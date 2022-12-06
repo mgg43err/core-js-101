@@ -55,8 +55,8 @@ function willYouMarryMe(i) {
  *    })
  *
  */
-function processAllPromises(/* array */) {
-  throw new Error('Not implemented');
+function processAllPromises(a) {
+  return Promise.all(a);
 }
 
 /**
