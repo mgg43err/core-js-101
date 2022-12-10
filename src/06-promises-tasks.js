@@ -99,9 +99,34 @@ function getFastestPromise(a) {
  *    });
  *
  */
-function chainPromises(/* array, action */) {
+/* function chainPromises(/* array, action ) {
   throw new Error('Not implemented');
+} */
+function chainPromises(arr, ac) {
+  function myPromiseAll(taskList) {
+    const results = [];
+    let promisesCompleted = 0;
+    return new Promise((resolve) => {
+      taskList.forEach((promise, index) => {
+        promise.then((val) => {
+          results[index] = val;
+          promisesCompleted += 1;
+          if (promisesCompleted === taskList.length) {
+            resolve(results);
+          }
+        }).catch((error) => {
+          promisesCompleted += 1;
+          if (promisesCompleted === taskList.length) {
+            resolve(results);
+          }
+          throw new Error(error);
+        });
+      });
+    });
+  }
+  return myPromiseAll(arr).then((res) => res.reduce(ac));
 }
+
 
 module.exports = {
   willYouMarryMe,
