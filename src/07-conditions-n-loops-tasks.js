@@ -27,8 +27,17 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(n) {
+  if (n % 15 === 0) {
+    return 'FizzBuzz';
+  }
+  if (n % 5 === 0) {
+    return 'Buzz';
+  }
+  if (n % 3 === 0) {
+    return 'Fizz';
+  }
+  return n;
 }
 
 

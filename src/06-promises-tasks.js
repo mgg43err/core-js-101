@@ -5,7 +5,6 @@
  *                                                                                                *
  ************************************************************************************************ */
 
-
 /**
  * Return Promise object that is resolved with string value === 'Hooray!!! She said "Yes"!',
  * if boolean value === true is passed, resolved with string value === 'Oh no, she said "No".',
@@ -38,7 +37,6 @@ function willYouMarryMe(i) {
     reject(new Error('Wrong parameter is passed! Ask her again.'));
   });
 }
-
 
 /**
  * Return Promise object that should be resolved with array containing plain values.
@@ -102,8 +100,9 @@ function getFastestPromise(a) {
 /* function chainPromises(/* array, action ) {
   throw new Error('Not implemented');
 } */
-function chainPromises(arr, ac) {
-  function myPromiseAll(taskList) {
+function chainPromises(/* arr, ac */) {
+  throw new Error('Not implemented');
+  /* function myPromiseAll(taskList) {
     const results = [];
     let promisesCompleted = 0;
     return new Promise((resolve) => {
@@ -124,9 +123,8 @@ function chainPromises(arr, ac) {
       });
     });
   }
-  return myPromiseAll(arr).then((res) => res.reduce(ac));
+  return myPromiseAll(arr).then((res) => res.reduce(ac)); */
 }
-
 
 module.exports = {
   willYouMarryMe,
