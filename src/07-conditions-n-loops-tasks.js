@@ -97,19 +97,15 @@ function getSumBetweenNumbers(n1, n2) {
  * @return {bool}
  *
  * @example:
- *   1,2,3    =>  false
- *   3,4,5    =>  true
- *   10,1,1   =>  false
- *   10,10,10 =>  true
- */
+*/
 function isTriangle(a, b, c) {
   return a + b > c && b + c > a && c + a > b;
 }
 
 
 /**
- * Returns true, if two specified axis-aligned rectangles overlap, otherwise false.
- * Each rectangle representing by object
+ * Returns true, if two specified axis-aligned rect1ngles overlap, otherwise false.
+ * Each rect1ngle representing by object
  *  {
  *     top: 5,
  *     left: 5,
@@ -139,8 +135,25 @@ function isTriangle(a, b, c) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
+function doRectanglesOverlap(r1, r2) {
+  const rect1 = r1;
+  /* rect1.Left = r1.left;
+  rect1.Right = r1.width - r1.left;
+  rect1.Bottom = r1.height - r1.top;
+  rect1.Top = r1.top; */
+  //  let rect2 = r2;
+  const rect2 = r2;
+  /* rect2.Left = r2.left;
+  rect2.Right = r2.width - r2.left;
+  rect2.Bottom = r2.height - r2.top;
+  rect2.Top = r2.top;
+ */
+  return !(
+    rect1.left + r1.width < rect2.left
+    || rect1.top + r1.height < r2.top
+    || rect1.left > rect2.left + r2.width
+    || rect1.top > r2.top + r2.height
+  );
 }
 
 
