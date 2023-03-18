@@ -394,12 +394,8 @@ function getCommonDirectoryPath(/* pathes */) {
  *
  */
 function getMatrixProduct(m1, m2) {
-  const dotproduct = function (a, b) {
-    return a.map((x, i) => a[i] * b[i]).reduce((m, n) => m + n);
-  };
-  const transpose = function (a) {
-    return a[0].map((_, i) => a.map((y) => y[i]));
-  };
+  const dotproduct = (a, b) => a.map((_, i) => a[i] * b[i]).reduce((m, n) => m + n);
+  const transpose = (a) => a[0].map((_, i) => a.map((y) => y[i]));
 
   return m1.map((x) => transpose(m2).map((y) => dotproduct(x, y)));
 }
