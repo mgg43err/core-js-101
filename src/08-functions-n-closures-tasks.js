@@ -186,7 +186,7 @@ function partialUsingArguments(/* fn, ...args1 */) {
  */
 function getIdGeneratorFunction(s) {
   let value = s;
-  return function () {
+  return () => {
     const old = value;
     value += 1;
     return old;
