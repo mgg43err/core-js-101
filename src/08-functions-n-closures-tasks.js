@@ -163,9 +163,12 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(/* fn, ...args1 */) {
-  throw new Error('Not implemented');
+
+function partialUsingArguments(fn, ...firstArg) {
+  return (...args) => fn.apply(null, [...firstArg, ...args]);
 }
+
+// fn.apply(null, [firstArg, ...args]);
 
 /**
  * Returns the id generator function that returns next integer starting
