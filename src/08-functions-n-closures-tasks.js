@@ -89,7 +89,6 @@ function getPolynom(/* ...args */) {
  */
 function memoize(fn) {
   const cache = new Map();
-
   return (...args) => {
     const key = JSON.stringify(args);
 
@@ -119,9 +118,20 @@ function memoize(fn) {
  * }, 2);
  * retryer() => 2
  */
-function retry(/* func, attempts */) {
-  throw new Error('Not implemented');
+
+
+function retry(func, attempts) {
+  const innerA = attempts;
+  if (innerA > 0) {
+    try {
+      func();
+    } catch (error) {
+      retry(func, innerA - 1);
+    }
+  }
+  return func;
 }
+
 
 /**
  * Returns the logging wrapper for the specified method,
