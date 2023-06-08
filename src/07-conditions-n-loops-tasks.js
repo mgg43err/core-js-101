@@ -227,8 +227,10 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  const min = Math.min(a, b);
+  const max = Math.max(a, b);
+  return `${isStartIncluded ? '[' : '('}${min}, ${max}${isEndIncluded ? ']' : ')'}`;
 }
 
 /**
@@ -287,8 +289,23 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
+function isCreditCardNumber(/* number */) {
   throw new Error('Not implemented');
+  /*  let number =
+  let reverseArr = [...arr].reverse()
+  let sum = 0;
+  for (let i = 0; i < reverseArr.length; i += 2) {
+    sum += reverseArr[i];
+
+    if(reverseArr[i + 1]) { // Check reverseArr[i + 1] has a value
+      sum += reverseArr[i + 1] * 2;
+      if (reverseArr[i + 1] * 2 > 9) {
+        sum -= 9;
+      }
+    }
+  }
+
+  return sum % 10 === 0; */
 }
 
 /**

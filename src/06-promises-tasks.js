@@ -100,9 +100,8 @@ function getFastestPromise(a) {
 /* function chainPromises(/* array, action ) {
   throw new Error('Not implemented');
 } */
-function chainPromises(/* arr, ac */) {
-  throw new Error('Not implemented');
-  /* function myPromiseAll(taskList) {
+function chainPromises(arr, ac) {
+  function myPromiseAll(taskList) {
     const results = [];
     let promisesCompleted = 0;
     return new Promise((resolve) => {
@@ -114,16 +113,18 @@ function chainPromises(/* arr, ac */) {
             resolve(results);
           }
         }).catch((error) => {
+          const err = [];
           promisesCompleted += 1;
           if (promisesCompleted === taskList.length) {
             resolve(results);
           }
-          throw new Error(error);
+          err.push(error);
+          // throw new Error(error);
         });
       });
     });
   }
-  return myPromiseAll(arr).then((res) => res.reduce(ac)); */
+  return myPromiseAll(arr).then((res) => res.reduce(ac));
 }
 
 module.exports = {
