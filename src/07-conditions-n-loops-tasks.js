@@ -6,6 +6,8 @@
  *                                                                                                *
  ************************************************************************************************ */
 
+// const { sortAndDeduplicateDiagnostics } = require('typescript');
+
 /**
  * Returns the 'Fizz','Buzz' or an original number using the following rules:
  * 1) return original number
@@ -180,7 +182,7 @@ function doRectanglesOverlap(r1, r2) {
 function isInsideCircle(circle, point) {
   return (
     ((circle.center.x - point.x) ** 2 + (circle.center.y - point.y) ** 2)
-      ** 0.5
+    ** 0.5
     < circle.radius
   );
 }
@@ -348,10 +350,23 @@ function getDigitalRoot(n) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  const stack = [];
+  const open = '([{<';
+  const close = ')]}>';
+  for (let i = 0; i < str.length; i += 1) {
+    const char = str[i];
+    if (open.includes(char)) {
+      stack.push(char);
+    } else if (close.includes(char)) {
+      const top = stack.pop();
+      if (open.indexOf(top) !== close.indexOf(char)) {
+        return false;
+      }
+    }
+  }
+  return stack.length === 0;
 }
-
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n <= 10)
  * representation of specified number.
