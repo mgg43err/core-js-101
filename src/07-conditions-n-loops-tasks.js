@@ -352,9 +352,9 @@ function getDigitalRoot(n) {
  */
 function isBracketsBalanced(str) {
   const stack = [];
-  const open = '([{<';
-  const close = ')]}>';
   for (let i = 0; i < str.length; i += 1) {
+    const open = '([{<';
+    const close = ')]}>';
     const char = str[i];
     if (open.includes(char)) {
       stack.push(char);
