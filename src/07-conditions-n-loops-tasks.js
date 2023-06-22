@@ -442,14 +442,14 @@ function getMatrixProduct(m1, m2) {
 }
 
 /**
- * Returns the evaluation of the specified tic-tac-toe position.
+ * Returns the evaluation of the specified tic-tac-toe p.
  * See the details: https://en.wikipedia.org/wiki/Tic-tac-toe
  *
  * Position is provides as 3x3 array with the following values: 'X','0', undefined
- * Function should return who is winner in the current position according to the game rules.
+ * Function should return who is winner in the current p according to the game rules.
  * The result can be: 'X','0',undefined
  *
- * @param {array} position
+ * @param {array} p
  * @return {string}
  *
  * @example
@@ -471,28 +471,27 @@ function getMatrixProduct(m1, m2) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition() {
-  throw new Error('Not implemented');
-  /* const w = [];
-  /* const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ]; */
-  /* for (let i = 0; i < p.length; i += 1) {
-    for (let j = 0; j < p[i].length; j += 1) {
-      if (p[i][j] === 'X') {
-        w.push(3 * i);
-      }
-    }
-  }
-  return w;  */
-  // return lines.includes(w);
+function evaluateTicTacToePosition(p) {
+  if (p[0][0] === 'X' && p[0][1] === 'X' && p[0][2] === 'X') return 'X';
+  if (p[1][0] === 'X' && p[1][1] === 'X' && p[1][2] === 'X') return 'X';
+  if (p[2][0] === 'X' && p[2][1] === 'X' && p[2][2] === 'X') return 'X';
+  if (p[0][0] === 'X' && p[1][0] === 'X' && p[2][0] === 'X') return 'X';
+  if (p[0][1] === 'X' && p[1][1] === 'X' && p[2][1] === 'X') return 'X';
+  if (p[0][2] === 'X' && p[1][2] === 'X' && p[2][2] === 'X') return 'X';
+  if (p[0][0] === 'X' && p[1][1] === 'X' && p[2][2] === 'X') return 'X';
+  if (p[0][2] === 'X' && p[1][1] === 'X' && p[2][0] === 'X') return 'X';
+
+
+  if (p[0][0] === '0' && p[0][1] === '0' && p[0][2] === '0') return '0';
+  if (p[1][0] === '0' && p[1][1] === '0' && p[1][2] === '0') return '0';
+  if (p[2][0] === '0' && p[2][1] === '0' && p[2][2] === '0') return '0';
+  if (p[0][0] === '0' && p[1][0] === '0' && p[2][0] === '0') return '0';
+  if (p[0][1] === '0' && p[1][1] === '0' && p[2][1] === '0') return '0';
+  if (p[0][2] === '0' && p[1][2] === '0' && p[2][2] === '0') return '0';
+  if (p[0][0] === '0' && p[1][1] === '0' && p[2][2] === '0') return '0';
+  if (p[0][2] === '0' && p[1][1] === '0' && p[2][0] === '0') return '0';
+
+  return undefined;
 }
 
 module.exports = {
