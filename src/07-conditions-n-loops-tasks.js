@@ -291,24 +291,28 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* number */) {
-  throw new Error('Not implemented');
-  /*  let number =
-  let reverseArr = [...arr].reverse()
-  let sum = 0;
-  for (let i = 0; i < reverseArr.length; i += 2) {
-    sum += reverseArr[i];
+function isCreditCardNumber(cardNumbe) {
+  const cardNo = cardNumbe.toString();
+  const nDigits = cardNo.length;
 
-    if(reverseArr[i + 1]) { // Check reverseArr[i + 1] has a value
-      sum += reverseArr[i + 1] * 2;
-      if (reverseArr[i + 1] * 2 > 9) {
-        sum -= 9;
-      }
-    }
+  let nSum = 0;
+  let isSecond = false;
+  for (let i = nDigits - 1; i >= 0; i -= 1) {
+    let d = cardNo[i].charCodeAt() - '0'.charCodeAt();
+
+    if (isSecond === true) d *= 2;
+
+    // We add two digits to handle
+    // cases that make two digits
+    // after doubling
+    nSum += parseInt(d / 10, 10);
+    nSum += d % 10;
+
+    isSecond = !isSecond;
   }
-
-  return sum % 10 === 0; */
+  return (nSum % 10 === 0);
 }
+
 
 /**
  * Returns the digital root of integer:
